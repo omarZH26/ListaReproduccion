@@ -1,0 +1,63 @@
+<% include partials/_header %>  <!--Reutilizacion de codigo--> 
+    
+
+
+    <div class="container">
+        <div class="row">
+            <!--Formulario-->
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/add" method="POST">
+                            <div class="form-group">
+                                <input type="text" name="nombre" placeholder="nombre" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="artista" placeholder="artista" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="genero" class="form-control" placeholder="genero">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="albun" class="form-control" placeholder="albun">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--lista-->
+            <div class="col-md-7">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>N</th>
+                            <th>nombre</th>
+                            <th>artista</th>
+                            <th>genero</th>
+                            <th>albun</th>
+                            <th>operacion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i = 0; i < canciones.length;i++ ){ %>
+                            <tr>
+                                <td><%= i + 1 %></td>
+                                <td><%= canciones[i].nombre%></td>
+                                <td><%= canciones[i].artista %></td>
+                                <td><%= canciones[i].genero %></td>
+                                <td><%= canciones[i].albun %></td>
+                                <td>
+                                    <a href="" class="btn btn-dark">done</a>
+                                    <a href="/delete/<%=canciones[i]._id %>" class="btn btn-danger">delete</a>
+                                    <a href="/edit/<%= canciones[i]._id %>" class="btn btn-info">edit</a>
+                                </td>
+                            </tr>
+                         <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <% include partials/_footer %><!--Reutilizacion de codigo--> 

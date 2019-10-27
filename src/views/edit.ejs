@@ -1,0 +1,30 @@
+<% include partials/_header %>
+
+
+<div class="col-md-5">
+    <div class="card">
+        <div class="card-body">
+            <form action="/edit/<%= Cancion2._id %>" method="POST">
+                <div class="form-group">
+                    <input type="text" name="nombre" placeholder="nombre" class="form-control" 
+                    value="<%= Cancion2.nombre %>">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="artista" placeholder="artista" class="form-control"
+                    value="<%= Cancion2.artista %>">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="genero" class="form-control" placeholder="genero"
+                    value="<%= Cancion2.genero %>">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="albun" class="form-control" placeholder="albun"
+                    value="<%= Cancion2.albun %>">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">update</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<% include partials/_footer %>
